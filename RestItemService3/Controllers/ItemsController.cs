@@ -8,7 +8,7 @@ using ModelLib.Model;
 
 namespace RestItemService3.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/localItems")]
     [ApiController]
     public class ItemsController : ControllerBase
     {
@@ -28,7 +28,9 @@ namespace RestItemService3.Controllers
         }
 
         // GET: api/Items/5
-        [HttpGet("{id}", Name = "Get")]
+        //[HttpGet("{id}", Name = "Get")]
+        [HttpGet]
+        [Route("{id}")] 
         public Item Get(int id)
         {
             return items.Find(i => i.Id == id);
@@ -42,7 +44,9 @@ namespace RestItemService3.Controllers
         }
 
         // PUT: api/Items/5
-        [HttpPut("{id}")]
+        //[HttpPut("{id}")]
+        [HttpPut]
+        [Route("{id}")] 
         public void Put(int id, [FromBody] Item value)
         {
             Item item = Get(id);
@@ -56,7 +60,9 @@ namespace RestItemService3.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
+        //[HttpDelete("{id}")]
+        [HttpDelete]
+        [Route("{id}")] 
         public void Delete(int id)
         {
             Item item = Get(id);
